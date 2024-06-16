@@ -1,0 +1,81 @@
+
+config/application.rb,179
+module OdinFlightBookerOdinFlightBooker9,0
+  class Application < Rails::ApplicationApplication10,0
+  class Application < Rails::ApplicationOdinFlightBooker::Application10,0
+
+app/helpers/application_helper.rb,47
+module ApplicationHelperApplicationHelper1,0
+
+app/mailers/application_mailer.rb,67
+class ApplicationMailer < ActionMailer::BaseApplicationMailer1,0
+
+app/jobs/application_job.rb,58
+class ApplicationJob < ActiveJob::BaseApplicationJob1,0
+
+app/channels/application_cable/connection.rb,195
+module ApplicationCableApplicationCable1,0
+  class Connection < ActionCable::Connection::BaseConnection2,0
+  class Connection < ActionCable::Connection::BaseApplicationCable::Connection2,0
+
+app/channels/application_cable/channel.rb,177
+module ApplicationCableApplicationCable1,0
+  class Channel < ActionCable::Channel::BaseChannel2,0
+  class Channel < ActionCable::Channel::BaseApplicationCable::Channel2,0
+
+app/controllers/application_controller.rb,79
+class ApplicationController < ActionController::BaseApplicationController1,0
+
+app/models/flight.rb,838
+class Flight < ApplicationRecordFlight1,0
+  belongs_to :departure_airport, class_name: 'Airport'departure_airport2,0
+  belongs_to :departure_airport, class_name: 'Airport'departure_airport=2,0
+  belongs_to :departure_airport, class_name: 'Airport'build_departure_airport2,0
+  belongs_to :departure_airport, class_name: 'Airport'create_departure_airport2,0
+  belongs_to :departure_airport, class_name: 'Airport'create_departure_airport!2,0
+  belongs_to :arrival_airport, class_name: 'Airport'arrival_airport3,0
+  belongs_to :arrival_airport, class_name: 'Airport'arrival_airport=3,0
+  belongs_to :arrival_airport, class_name: 'Airport'build_arrival_airport3,0
+  belongs_to :arrival_airport, class_name: 'Airport'create_arrival_airport3,0
+  belongs_to :arrival_airport, class_name: 'Airport'create_arrival_airport!3,0
+
+app/models/application_record.rb,67
+class ApplicationRecord < ActiveRecord::BaseApplicationRecord1,0
+
+app/models/airport.rb,934
+class Airport < ApplicationRecordAirport1,0
+  has_many :departing_flights, class_name: 'Flight', foreign_key: 'departure_airport_id'departing_flights2,0
+  has_many :departing_flights, class_name: 'Flight', foreign_key: 'departure_airport_id'departing_flights=2,0
+  has_many :departing_flights, class_name: 'Flight', foreign_key: 'departure_airport_id'departing_flight_ids2,0
+  has_many :departing_flights, class_name: 'Flight', foreign_key: 'departure_airport_id'departing_flight_ids=2,0
+  has_many :arriving_flights, class_name: 'Flight', foreign_key: 'arrival_airport_id'arriving_flights3,0
+  has_many :arriving_flights, class_name: 'Flight', foreign_key: 'arrival_airport_id'arriving_flights=3,0
+  has_many :arriving_flights, class_name: 'Flight', foreign_key: 'arrival_airport_id'arriving_flight_ids3,0
+  has_many :arriving_flights, class_name: 'Flight', foreign_key: 'arrival_airport_id'arriving_flight_ids=3,0
+
+db/migrate/20240616111452_create_flights.rb,93
+class CreateFlights < ActiveRecord::Migration[7.1]CreateFlights1,0
+  def changechange2,0
+
+db/migrate/20240616105745_create_airports.rb,95
+class CreateAirports < ActiveRecord::Migration[7.1]CreateAirports1,0
+  def changechange2,0
+
+test/application_system_test_case.rb,95
+class ApplicationSystemTestCase < ActionDispatch::SystemTestCaseApplicationSystemTestCase3,0
+
+test/channels/application_cable/connection_test.rb,219
+module ApplicationCableApplicationCable3,0
+  class ConnectionTest < ActionCable::Connection::TestCaseConnectionTest4,0
+  class ConnectionTest < ActionCable::Connection::TestCaseApplicationCable::ConnectionTest4,0
+
+test/models/airport_test.rb,60
+class AirportTest < ActiveSupport::TestCaseAirportTest3,0
+
+test/models/flight_test.rb,58
+class FlightTest < ActiveSupport::TestCaseFlightTest3,0
+
+test/test_helper.rb,114
+module ActiveSupportActiveSupport5,0
+  class TestCaseTestCase6,0
+  class TestCaseActiveSupport::TestCase6,0
