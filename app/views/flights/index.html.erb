@@ -33,7 +33,7 @@
       <ul>
         <% @search_results.each do |flight| %>
           <li>
-            <%= f.radio_button :selected_flight_id, flight.id %>
+            <%= f.radio_button :flight_id, flight.id %>
             Flight Date: <%= flight.departure_datetime.strftime("%m/%d/%y %H:%M") %><br>
             Departure Airport: <%= flight.departure_airport.code %> ==> Arrival Airport: <%= flight.arrival_airport.code %><br>
             Flight Duration: <%= flight.duration %> minutes
