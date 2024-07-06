@@ -2,13 +2,13 @@
 
 <div class="flight-info">
   <h3>Flight Information</h3>
-  Flight: <%= @flight.id %><br>
-  Departure Time: <%= @flight.departure_datetime.strftime("%m/%d/%y %H:%M") %><br>
-  Departure Airport: <%= @flight.departure_airport.code %><br>
-  Arrival Airport: <%= @flight.arrival_airport.code %>
+  <span class="flight-detail">Flight:</span> <%= @flight.id %><br>
+  <span class="flight-detail">Departure Time:</span> <%= @flight.departure_datetime.strftime("%m/%d/%y %H:%M") %><br>
+  <span class="flight-detail">Departure Airport:</span> <%= @flight.departure_airport.code %><br>
+  <span class="flight-detail">Arrival Airport:</span> <%= @flight.arrival_airport.code %>
 </div>
 
-<div class="form-container">
+<div class="booking-form-container">
   <%= form_with model: @booking do |f| %>
     <%= f.hidden_field :flight_id, value: @flight.id %>
     <h3>Passenger(s) Information</h3>
@@ -17,12 +17,12 @@
         <legend>Passenger</legend>
         
         <%= passenger.label :name %>
-        <%= passenger.text_field :name %>
+        <%= passenger.text_field :name, required: true %>
 
         <%= passenger.label :email %>
-        <%= passenger.email_field :email %>
+        <%= passenger.email_field :email, required: true %>
       </fieldset><br>
     <% end %>
-    <%= f.submit "Book Flight" %>
+    <%= f.submit "Book Flight", class: 'btn book-flight-btn' %>
   <% end %>
 </div>

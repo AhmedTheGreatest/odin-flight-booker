@@ -1,28 +1,28 @@
 <h1>Search for Flights</h1>
 
 <div class="form-container">
-  <%= form_with(url: flights_path, method: :get) do |f| %>
-    <div>
-      <%= f.label :departure_airport_id, class_name: 'label departure-airport-label' %>
-      <%= f.select :departure_airport_id, @airports, prompt: "Select a departure airport...", required: true, class: 'search-dropdown' %>
+  <%= form_with(url: flights_path, method: :get, class: 'flight-form') do |f| %>
+    <div class="search-dropdown">
+      <%= f.label :departure_airport_id, class_name: 'label departure-airport-label' %><br>
+      <%= f.select :departure_airport_id, @airports, prompt: "Select a departure airport...", required: true %>
+    </div>
+
+    <div class="search-dropdown">
+      <%= f.label :arrival_airport_id, class_name: 'label arrival-airport-label' %><br>
+      <%= f.select :arrival_airport_id, @airports, prompt: "Select a arrival airport...", required: true %>
     </div>
 
     <div>
-      <%= f.label :arrival_airport_id, class_name: 'label arrival-airport-label' %>
-      <%= f.select :arrival_airport_id, @airports, prompt: "Select a arrival airport...", required: true, class: 'search-dropdown' %>
-    </div>
-
-    <div>
-      <%= f.label :tickets, "Number of Passengers (1-4)", class_name: 'label passengers-label' %>
+      <%= f.label :tickets, "Number of Passengers (1-4)", class_name: 'label passengers-label' %><br>
       <%= f.number_field :tickets, required: true, in: 1..4, class: 'passengers-count' %>
     </div>
 
-    <div>
-      <%= f.label :departure_date, class_name: 'label date-label' %>
-      <%= f.select :departure_date, @departure_dates, prompt: "Select the departure date...", required: true, class: 'search-dropdown' %>
+    <div class="search-dropdown">
+      <%= f.label :departure_date, class_name: 'label date-label' %><br>
+      <%= f.select :departure_date, @departure_dates, prompt: "Select the departure date...", required: true %>
     </div>
 
-    <%= f.submit "Search" %>
+    <%= f.submit "Search", class: 'btn search-btn' %>
   <% end %>
 </div>
 
@@ -30,18 +30,20 @@
   <% if @search_results.present? %>
     <h2>Available Flights</h2>
     <%= form_with(url: new_booking_path, method: :get) do |f| %>
-      <ul>
+      <ul class="booking-flights">
         <% @search_results.each do |flight| %>
           <li>
-            <%= f.radio_button :flight_id, flight.id %>
-            Flight Date: <%= flight.departure_datetime.strftime("%m/%d/%y %H:%M") %><br>
-            Departure Airport: <%= flight.departure_airport.code %> ==> Arrival Airport: <%= flight.arrival_airport.code %><br>
-            Flight Duration: <%= flight.duration %> minutes
+            <%= f.radio_button :flight_id, flight.id, class: 'flight-radio-btn' %>
+            <div>
+              <span class="flight-detail">Flight Date:</span> <%= flight.departure_datetime.strftime("%m/%d/%y %H:%M") %><br>
+              <span class="flight-detail">Departure Airport:</span> <%= flight.departure_airport.code %> ==> Arrival Airport: <%= flight.arrival_airport.code %><br>
+              <span class="flight-detail">Flight Duration:</span> <%= flight.duration %> minutes
+            </div>
           </li>
         <% end %>
       </ul>
       <%= f.hidden_field :tickets, value: params[:tickets] %>
-      <%= f.submit "Book Flight" %>
+      <%= f.submit "Book Flight", class: 'btn book-btn' %>
     <% end %>
   <% else %>
     <h2>No Flights Available!</h2>
