@@ -118,7 +118,8 @@ label::after {
 .form-container {
   border-radius: 1rem;
   padding: 0.8rem;
-  background-color: orange;
+  /* background-color: orange; */
+  border: 0.2rem dashed orange;
 }
 
 .flight-info {
