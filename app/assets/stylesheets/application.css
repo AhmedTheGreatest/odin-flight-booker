@@ -37,10 +37,6 @@ a {
   color: #fefefe;
 }
 
-a:hover {
-  color: grey;
-}
-
 .btn {
   border: none;
   /* outline: none; */
@@ -124,4 +120,16 @@ label::after {
 
 .flight-info {
   margin: 1rem;
+}
+
+.remove-passenger-btn {
+  border: none;
+  /* outline: none; */
+  border-radius: 0.5rem;
+  background-color: orange;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  color: black;
+  font-weight: 900;
+  cursor: pointer;
 }

@@ -1,0 +1,13 @@
+<div class="passenger-conatainer">
+  <fieldset>
+    <legend>Passenger</legend>
+  
+    <%= passenger.label :name %>
+    <%= passenger.text_field :name, required: true %>
+  
+    <%= passenger.label :email %>
+    <%= passenger.email_field :email, required: true %>
+  
+    <a class="remove-passenger-btn" data-nested-form-target="removePassenger" data-action="nested-form#remove">X</a>
+  </fieldset><br>
+</div>
