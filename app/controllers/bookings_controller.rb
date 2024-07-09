@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     end
 
     if @booking.save
+      PassengerMailer.confirmation_email(@booking).deliver_now!
       redirect_to @booking, success: 'Flight successfully booked!'
     else
       render :new, status: :unprocessable_entity
