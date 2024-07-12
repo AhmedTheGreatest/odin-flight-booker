@@ -20,10 +20,8 @@ nyc = Airport.find_or_create_by!(code: 'NYC')
 isb = Airport.find_or_create_by!(code: 'ISB')
 
 # Seed flights
-Flight.find_or_create_by!([
-  { departure_airport: sfo, arrival_airport: nyc, departure_datetime: '2024-07-01 08:00', duration: 300 },
-  { departure_airport: khi, arrival_airport: isb, departure_datetime: '2024-07-01 09:00', duration: 240 },
-  { departure_airport: isb, arrival_airport: lyp, departure_datetime: '2024-07-01 10:00', duration: 180 },
-  { departure_airport: lyp, arrival_airport: nyc, departure_datetime: '2024-07-01 11:00', duration: 270 },
-  { departure_airport: khi, arrival_airport: sfo, departure_datetime: '2024-07-01 12:00', duration: 210 }
-])
+Flight.find_or_create_by!(departure_airport: sfo, arrival_airport: nyc, departure_datetime: '2024-07-01 08:00', duration: 300)
+Flight.find_or_create_by!(departure_airport: khi, arrival_airport: isb, departure_datetime: '2024-07-01 09:00', duration: 240)
+Flight.find_or_create_by!(departure_airport: isb, arrival_airport: lyp, departure_datetime: '2024-07-01 10:00', duration: 180)
+Flight.find_or_create_by!(departure_airport: lyp, arrival_airport: nyc, departure_datetime: '2024-07-01 11:00', duration: 270)
+Flight.find_or_create_by!(departure_airport: khi, arrival_airport: sfo, departure_datetime: '2024-07-01 12:00', duration: 210)
