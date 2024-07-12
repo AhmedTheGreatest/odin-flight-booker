@@ -9,18 +9,18 @@
 #   end
 
 # Clear existing data
-Airport.destroy_all
-Flight.destroy_all
+# Airport.destroy_all
+# Flight.destroy_all
 
 # Seed airports
-khi = Airport.create!(code: 'KHI')
-lyp = Airport.create!(code: 'LYP')
-sfo = Airport.create!(code: 'SFO')
-nyc = Airport.create!(code: 'NYC')
-isb = Airport.create!(code: 'ISB')
+khi = Airport.find_or_create_by!(code: 'KHI')
+lyp = Airport.find_or_create_by!(code: 'LYP')
+sfo = Airport.find_or_create_by!(code: 'SFO')
+nyc = Airport.find_or_create_by!(code: 'NYC')
+isb = Airport.find_or_create_by!(code: 'ISB')
 
 # Seed flights
-Flight.create!([
+Flight.find_or_create_by!([
   { departure_airport: sfo, arrival_airport: nyc, departure_datetime: '2024-07-01 08:00', duration: 300 },
   { departure_airport: khi, arrival_airport: isb, departure_datetime: '2024-07-01 09:00', duration: 240 },
   { departure_airport: isb, arrival_airport: lyp, departure_datetime: '2024-07-01 10:00', duration: 180 },
